@@ -11,15 +11,19 @@
 		AEE7403A1E53ECE200A9F1C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE740391E53ECE200A9F1C1 /* ViewController.swift */; };
 		AEE7403F1E53ECE200A9F1C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEE7403E1E53ECE200A9F1C1 /* Assets.xcassets */; };
 		AEE740421E53ECE200A9F1C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEE740401E53ECE200A9F1C1 /* LaunchScreen.storyboard */; };
+		BDFCB6D209D62853DB78F11A /* Pods_AVPlayer_CustomPlayerView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07FA89242FB9ECA73AF5FFB5 /* Pods_AVPlayer_CustomPlayerView.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07FA89242FB9ECA73AF5FFB5 /* Pods_AVPlayer_CustomPlayerView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AVPlayer_CustomPlayerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEE740341E53ECE200A9F1C1 /* AVPlayer-CustomPlayerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AVPlayer-CustomPlayerView.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEE740371E53ECE200A9F1C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEE740391E53ECE200A9F1C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AEE7403E1E53ECE200A9F1C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEE740411E53ECE200A9F1C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEE740431E53ECE200A9F1C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B597905A701B9AA7E25D5629 /* Pods-AVPlayer-CustomPlayerView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AVPlayer-CustomPlayerView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AVPlayer-CustomPlayerView/Pods-AVPlayer-CustomPlayerView.debug.xcconfig"; sourceTree = "<group>"; };
+		E411A9444E1DE5908BF42745 /* Pods-AVPlayer-CustomPlayerView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AVPlayer-CustomPlayerView.release.xcconfig"; path = "Pods/Target Support Files/Pods-AVPlayer-CustomPlayerView/Pods-AVPlayer-CustomPlayerView.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDFCB6D209D62853DB78F11A /* Pods_AVPlayer_CustomPlayerView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +43,8 @@
 			children = (
 				AEE740361E53ECE200A9F1C1 /* AVPlayer-CustomPlayerView */,
 				AEE740351E53ECE200A9F1C1 /* Products */,
+				CEF93AF70390EC84A534FB10 /* Pods */,
+				FF47983AA6125092801E611A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +68,23 @@
 			path = "AVPlayer-CustomPlayerView";
 			sourceTree = "<group>";
 		};
+		CEF93AF70390EC84A534FB10 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B597905A701B9AA7E25D5629 /* Pods-AVPlayer-CustomPlayerView.debug.xcconfig */,
+				E411A9444E1DE5908BF42745 /* Pods-AVPlayer-CustomPlayerView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FF47983AA6125092801E611A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07FA89242FB9ECA73AF5FFB5 /* Pods_AVPlayer_CustomPlayerView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -68,9 +92,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AEE740461E53ECE200A9F1C1 /* Build configuration list for PBXNativeTarget "AVPlayer-CustomPlayerView" */;
 			buildPhases = (
+				420795DED018C6425C615B5E /* [CP] Check Pods Manifest.lock */,
 				AEE740301E53ECE200A9F1C1 /* Sources */,
 				AEE740311E53ECE200A9F1C1 /* Frameworks */,
 				AEE740321E53ECE200A9F1C1 /* Resources */,
+				F0336C8C1B6742980F175801 /* [CP] Embed Pods Frameworks */,
+				6EDB3338AB66E2EE64216979 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,6 +153,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		420795DED018C6425C615B5E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6EDB3338AB66E2EE64216979 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AVPlayer-CustomPlayerView/Pods-AVPlayer-CustomPlayerView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0336C8C1B6742980F175801 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AVPlayer-CustomPlayerView/Pods-AVPlayer-CustomPlayerView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AEE740301E53ECE200A9F1C1 /* Sources */ = {
@@ -244,6 +319,7 @@
 		};
 		AEE740471E53ECE200A9F1C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B597905A701B9AA7E25D5629 /* Pods-AVPlayer-CustomPlayerView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "AVPlayer-CustomPlayerView/Info.plist";
@@ -256,6 +332,7 @@
 		};
 		AEE740481E53ECE200A9F1C1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E411A9444E1DE5908BF42745 /* Pods-AVPlayer-CustomPlayerView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "AVPlayer-CustomPlayerView/Info.plist";
