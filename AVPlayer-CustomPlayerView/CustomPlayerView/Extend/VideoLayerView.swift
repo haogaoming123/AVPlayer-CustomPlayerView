@@ -52,7 +52,12 @@ class VideoLayerView: UIView
     
     /// 暂停or开始按钮
     lazy var playOrPauseButton: UIButton = {
-        let button = UIButton(superView: self, target: self, selector: #selector(buttonAction(_:)), imageName: "icon_viedio_stop", selectedImageName: "icon_viedio_play")
+        let button = UIButton(type: .custom)
+        button.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
+        button.setImage(UIImage(named: "icon_viedio_stop"), for: .normal)
+        button.setImage(UIImage(named: "icon_viedio_play"), for: .selected)
+        self.addSubview(button)
+
         button.tag = BUTTONTAG
         button.backgroundColor = UIColor.clear
         return button
@@ -60,7 +65,11 @@ class VideoLayerView: UIView
     
     /// 播放上一个按钮
     lazy var rewindButton: UIButton = {
-        let button = UIButton(superView: self, target: self, selector: #selector(buttonAction(_:)), imageName: "icon_viedio_rewind")
+        let button = UIButton(type: .custom)
+        button.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
+        button.setImage(UIImage(named: "icon_viedio_rewind"), for: .normal)
+        self.addSubview(button)
+        
         button.tag = BUTTONTAG+1
         button.snp.makeConstraints { (make) in
             make.centerY.equalTo(self.playOrPauseButton.snp.centerY)
@@ -72,7 +81,11 @@ class VideoLayerView: UIView
     
     /// 播放下一个按钮
     lazy var forwardButton: UIButton = {
-        let button = UIButton(superView: self, target: self, selector: #selector(buttonAction(_:)), imageName: "icon_viedio_forward")
+        let button = UIButton(type: .custom)
+        button.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
+        button.setImage(UIImage(named: "icon_viedio_forward"), for: .normal)
+        self.addSubview(button)
+        
         button.tag = BUTTONTAG+2
         button.snp.makeConstraints { (make) in
             make.centerY.equalTo(self.playOrPauseButton.snp.centerY)
@@ -84,7 +97,11 @@ class VideoLayerView: UIView
     
     /// 全屏按钮
     lazy var screenButton: UIButton = {
-        let button = UIButton(superView: self, target: self, selector: #selector(buttonAction(_:)), imageName: "btn_viedio_fullscreen")
+        let button = UIButton(type: .custom)
+        button.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
+        button.setImage(UIImage(named: "btn_viedio_fullscreen"), for: .normal)
+        self.addSubview(button)
+        
         button.tag = BUTTONTAG+3
         button.backgroundColor = UIColor.clear
         return button
@@ -92,7 +109,11 @@ class VideoLayerView: UIView
     
     /// 关闭按钮
     lazy var closeButton: UIButton = {
-        let button = UIButton(superView: self, target: self, selector: #selector(buttonAction(_:)), imageName: "icon_closevideo")
+        let button = UIButton(type: .custom)
+        button.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
+        button.setImage(UIImage(named: "icon_closevideo"), for: .normal)
+        self.addSubview(button)
+        
         button.tag = BUTTONTAG+4
         button.backgroundColor = UIColor.clear
         return button
@@ -100,7 +121,11 @@ class VideoLayerView: UIView
     
     /// 返回按钮
     lazy var backButton: UIButton = {
-        let button = UIButton(superView: self, target: self, selector: #selector(buttonAction(_:)), imageName: "icon_back_video")
+        let button = UIButton(type: .custom)
+        button.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
+        button.setImage(UIImage(named: "icon_back_video"), for: .normal)
+        self.addSubview(button)
+        
         button.tag = BUTTONTAG+5
         button.backgroundColor = UIColor.clear
         return button
@@ -108,7 +133,12 @@ class VideoLayerView: UIView
     
     /// 当前播放时间lable
     lazy var currentTimeLable: UILabel = {
-        let lable = UILabel(superView: self, font: FONTSYS10, textColor: UIColor.white, alignment: .right)
+        let lable = UILabel()
+        lable.font = UIFont.systemFont(ofSize: 10)
+        lable.textColor = UIColor.white
+        lable.textAlignment = .right
+        self.addSubview(lable)
+        
         lable.backgroundColor = UIColor.clear
         lable.text = "00:00:00"
         return lable
@@ -116,7 +146,12 @@ class VideoLayerView: UIView
     
     /// 播放的总时间
     lazy var totalTimeLable: UILabel = {
-        let lable = UILabel(superView: self, font: FONTSYS10, textColor: UIColor.white, alignment: .left)
+        let lable = UILabel()
+        lable.font = UIFont.systemFont(ofSize: 10)
+        lable.textColor = UIColor.white
+        lable.textAlignment = .left
+        self.addSubview(lable)
+        
         lable.backgroundColor = UIColor.clear
         lable.text = "00:00:00"
         return lable
@@ -125,7 +160,6 @@ class VideoLayerView: UIView
     /// 播放的进度条
     lazy var controlSlider: UISlider = {
         let slider = UISlider()
-        //slider.setMaximumTrackImage(UIImage(named: "icon_progressbar_black"), for: .normal)
         slider.maximumTrackTintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         slider.setMinimumTrackImage(UIImage(named: "icon_progressbar_yellow"), for: .normal)
         slider.setThumbImage(UIImage(named: "icon_progressbar_yellow"), for: .normal)

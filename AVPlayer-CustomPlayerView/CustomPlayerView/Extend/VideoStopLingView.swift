@@ -26,7 +26,11 @@ class VideoStopLingView: UIView
         super.init(frame: frame)
         
         //重新加载的button
-        let button = UIButton(superView: self, target: self, selector: #selector(LoadingVideoNoWifiClick(_:)), imageName: "icon_viedio_play", selectedImageName: "")
+        let button = UIButton(type: .custom)
+        button.addTarget(self, action: #selector(LoadingVideoNoWifiClick(_:)), for: .touchUpInside)
+        button.setImage(UIImage(named: "icon_viedio_play"), for: .normal)
+        self.addSubview(button)
+        
         button.setTitleColor(UIColor.white, for: .normal)
         button.snp.makeConstraints({ (make) in
             make.centerX.centerY.equalTo(self)

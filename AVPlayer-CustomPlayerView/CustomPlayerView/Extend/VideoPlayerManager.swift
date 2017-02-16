@@ -219,7 +219,8 @@ class VideoPlayerManager: NSObject
     
     /// 每秒钟更改时间lable
     private func showVideoTimeLable() {
-        let formatter = Date.setDateFormatter(dateformatStr: "HH:mm:ss")
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm:ss"
         formatter.timeZone = TimeZone(secondsFromGMT: 8)
         //判断总时间，只计算一次
         var totalStr: String?

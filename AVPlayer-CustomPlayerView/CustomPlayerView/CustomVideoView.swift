@@ -14,6 +14,7 @@ enum customVideoViewType {
 }
 let VIDEOHEIGHT :CGFloat = 220 //视频高度
 let PLAYER_SCREEN_WIDTH = UIScreen.main.bounds.width
+let PLAYER_SCREEN_HEIGHT = UIScreen.main.bounds.height
 /// 横屏的block
 typealias screenHorizontalBlock = (_ horizontal:Bool) -> Void
 /// 视频播放完成的block
@@ -151,7 +152,8 @@ class CustomVideoView: UIView,VideoFailedReloadViewDelegate,VideoLayerViewDelega
         }
         
         //添加tap点击事件，用于显示播放按钮等操作
-        _ = addGestureRecognizer(style: .tap, target: self, selector: #selector(hiddenSliderTapClick))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hiddenSliderTapClick))
+        self.addGestureRecognizer(tap)
     }
     
     /// 添加播放器avplayer
@@ -365,20 +367,20 @@ class CustomVideoView: UIView,VideoFailedReloadViewDelegate,VideoLayerViewDelega
             }
             
             if button.isSelected {
-                self.frame = CGRect(x: 0, y: 0, width: SCREEN_HEIGHT, height: SCREEN_WIDTH)
+                self.frame = CGRect(x: 0, y: 0, width: PLAYER_SCREEN_HEIGHT, height: PLAYER_SCREEN_WIDTH)
                 if playerLoadingView.superview != nil {
                     //添加了loading页面，才改变frame
-                    playerLoadingView.frame = CGRect(x: (SCREEN_HEIGHT-40)/2.0, y: (SCREEN_WIDTH-30)/2.0, width: 40, height: 30)
+                    playerLoadingView.frame = CGRect(x: (PLAYER_SCREEN_HEIGHT-40)/2.0, y: (PLAYER_SCREEN_WIDTH-30)/2.0, width: 40, height: 30)
                 }
                 if loadingFailView.superview != nil {
                     //添加了失败页面，才改变frame
-                    loadingFailView.frame = CGRect(x: 0, y: self.height/2.0-25, width: SCREEN_HEIGHT, height: 50)
+                    loadingFailView.frame = CGRect(x: 0, y: self.frame.height/2.0-25, width: PLAYER_SCREEN_HEIGHT, height: 50)
                 }
                 if videoStopLingView.superview != nil {
                     //添加停止加载的页面，才改变frame
-                    videoStopLingView.frame = CGRect(x: self.width/2.0-22, y: self.height/2.0-22, width: 44, height: 44)
+                    videoStopLingView.frame = CGRect(x: self.frame.width/2.0-22, y: self.frame.height/2.0-22, width: 44, height: 44)
                 }
-                videoLayerView.frame = CGRect(x: 0, y: 0, width: SCREEN_HEIGHT, height: SCREEN_WIDTH)
+                videoLayerView.frame = CGRect(x: 0, y: 0, width: PLAYER_SCREEN_HEIGHT, height: PLAYER_SCREEN_WIDTH)
                 if playerLayer != nil {
                     playerLayer?.frame = self.frame
                 }
@@ -393,7 +395,7 @@ class CustomVideoView: UIView,VideoFailedReloadViewDelegate,VideoLayerViewDelega
             }
             
             //视频的偏移量
-            let contentofSet = SCREEN_HEIGHT/2.0-SCREEN_WIDTH/2.0
+            let contentofSet = PLAYER_SCREEN_HEIGHT/2.0-PLAYER_SCREEN_WIDTH/2.0
             UIView.animate(withDuration: 0.25, animations: {[unowned self] in
                 if button.isSelected {
                     //选中，横屏旋转屏幕
@@ -408,15 +410,15 @@ class CustomVideoView: UIView,VideoFailedReloadViewDelegate,VideoLayerViewDelega
                     self.videoLayerView.frame = self.superViewFrame
                     if self.playerLoadingView.superview != nil {
                         //添加了loading页面，才改变frame
-                        self.playerLoadingView.frame = CGRect(x: (self.width-40)/2.0, y: (self.height-30)/2.0, width: 40, height: 30)
+                        self.playerLoadingView.frame = CGRect(x: (self.frame.width-40)/2.0, y: (self.frame.height-30)/2.0, width: 40, height: 30)
                     }
                     if self.videoStopLingView.superview != nil {
                         //添加停止加载的页面，才改变frame
-                        self.videoStopLingView.frame = CGRect(x: (self.width-44)/2.0, y: (self.height-44)/2.0, width: 44, height: 44)
+                        self.videoStopLingView.frame = CGRect(x: (self.frame.width-44)/2.0, y: (self.frame.height-44)/2.0, width: 44, height: 44)
                     }
                     if self.loadingFailView.superview != nil {
                         //添加了失败页面，才改变frame
-                        self.loadingFailView.frame = CGRect(x: 0, y: self.height/2.0-25, width: SCREEN_WIDTH, height: 50)
+                        self.loadingFailView.frame = CGRect(x: 0, y: self.frame.height/2.0-25, width: PLAYER_SCREEN_WIDTH, height: 50)
                     }
                 }
             })

@@ -31,6 +31,7 @@ class VideoFailedReloadView: UIView
         button.addTarget(self, action: #selector(reloadVideoPlayer(_:)), for: .touchUpInside)
         button.setTitle("加载失败,点击重试", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
+        self.addSubview(button)
         button.snp.makeConstraints({ (make) in
             make.centerX.centerY.equalTo(self)
             make.width.equalTo(self.snp.width)
